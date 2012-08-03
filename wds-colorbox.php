@@ -16,7 +16,7 @@ add_action( 'init', 'wds_colorbox_register_scripts_styles' );
 function wds_colorbox_register_scripts_styles() {
 
 	wp_register_script( 'colorbox', WDSCOLORBOX_URL .'colorbox/colorbox/jquery.colorbox.js', array('jquery'), '1.0' );
-	wp_register_script( 'colorbox-init', WDSCOLORBOX_URL .'js/colorbox-init.js', array('jquery'), '1.0', true );
+	wp_register_script( 'colorbox-init', WDSCOLORBOX_URL .'js/colorbox-init.js', array('jquery'), '1.0' );
 
 	wp_register_style( 'colorbox', WDSCOLORBOX_URL .'colorbox/example3/colorbox.css', null, '1.0' );
 }
