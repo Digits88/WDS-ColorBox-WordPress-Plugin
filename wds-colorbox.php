@@ -21,7 +21,7 @@ function wds_colorbox_register_scripts_styles() {
 	wp_register_style( 'colorbox', WDSCOLORBOX_URL .'colorbox/example3/colorbox.css', null, '1.0' );
 }
 
-function wds_colorbox( $element, $colorbox_params = array() ) {
+function wds_colorbox( $element = '', $colorbox_params = array() ) {
 
 	$defaults = array(
 		// 'hierarchical' => true,
@@ -34,12 +34,12 @@ function wds_colorbox( $element, $colorbox_params = array() ) {
 	$colorbox_params = wp_parse_args( $colorbox_params, $defaults );
 
 	wp_enqueue_script( 'colorbox' );
-	wp_enqueue_script( 'colorbox-init' );
-
-	wp_localize_script( 'colorbox-init', 'wdscolorbox', array( 'element' => $element, 'params' => $colorbox_params ) );
-
 	wp_enqueue_style( 'colorbox' );
 
+	if ( !empty( $element ) ) {
+		wp_enqueue_script( 'colorbox-init' );
+		wp_localize_script( 'colorbox-init', 'wdscolorbox', array( 'element' => $element, 'params' => $colorbox_params ) );
+	}
 }
 
 ?>
